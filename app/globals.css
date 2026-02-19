@@ -250,7 +250,7 @@ header nav a:nth-child(2)::after {
 /* --- PRODUCT GRID (Brutalist 1px) --- */
 .products {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   background: var(--fg);
   gap: 1px;
   border-top: 1px solid var(--fg);
@@ -260,7 +260,7 @@ header nav a:nth-child(2)::after {
 .card {
   position: relative;
   background: var(--bg);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   cursor: pointer;
 }
