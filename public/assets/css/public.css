@@ -1,7 +1,18 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+/* ============================================
+   ELVA BRUTALIST SYSTEM - KANTIN
+   public.css
+   ============================================ */
 
-@custom-variant dark (&:is(.dark *));
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --- RESET & VARIABLES --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   --bg: #ffffff;
@@ -11,83 +22,44 @@
   --surface: #f7f7f7;
   --ease: cubic-bezier(0.8, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-
-  --background: #ffffff;
-  --foreground: #252525;
-  --card: #ffffff;
-  --card-foreground: #252525;
-  --primary: #343434;
-  --primary-foreground: #ffffff;
-  --secondary: #f7f7f7;
-  --secondary-foreground: #252525;
-  --muted-bg: #f7f7f7;
-  --muted-foreground: #737373;
-  --accent: #f7f7f7;
-  --accent-foreground: #252525;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --input: #ececec;
-  --ring: #252525;
-  --radius: 0rem;
 }
-
-@theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted-bg);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: 0rem;
-  --radius-md: 0rem;
-  --radius-lg: 0rem;
-  --radius-xl: 0rem;
-}
-
-/* ========== ELVA BRUTALIST SYSTEM ========== */
 
 html {
   scroll-behavior: smooth;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  body {
-    background-color: var(--bg);
-    color: var(--fg);
-    line-height: 1.5;
-    overflow-x: hidden;
-  }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- GRID OVERLAY --- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* --- 18-COLUMN GRID OVERLAY --- */
 .grid-overlay {
   position: fixed;
   inset: 0;
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   pointer-events: none;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .grid-overlay div {
@@ -124,7 +96,6 @@ header nav {
 }
 
 header nav a {
-  text-decoration: none;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -166,7 +137,7 @@ header nav a:nth-child(2)::after {
   display: none;
 }
 
-/* --- HERO --- */
+/* --- HERO SECTION --- */
 .hero {
   height: 100vh;
   display: flex;
@@ -219,35 +190,7 @@ header nav a:nth-child(2)::after {
   }
 }
 
-/* --- MARQUEE BAND --- */
-.marquee-band {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 20px 0;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.marquee-inner {
-  display: inline-flex;
-  animation: marquee 20s linear infinite;
-}
-
-.marquee-inner span {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0 40px;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0%); }
-  to { transform: translateX(-50%); }
-}
-
-/* --- PRODUCT GRID (Brutalist 1px) --- */
+/* --- PRODUCT GRID (Brutalist 1px lines) --- */
 .products {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -281,7 +224,7 @@ header nav a:nth-child(2)::after {
   transform: scale(1.06);
 }
 
-/* Card overlay */
+/* Card info overlay */
 .card-content {
   position: absolute;
   inset: 0;
@@ -335,7 +278,7 @@ header nav a:nth-child(2)::after {
   letter-spacing: 0.02em;
 }
 
-/* Buy button */
+/* Buy Button */
 .btn-buy {
   display: inline-block;
   margin-top: 20px;
@@ -363,7 +306,14 @@ header nav a:nth-child(2)::after {
   transform: translateY(0) scale(0.97);
 }
 
-/* --- TOAST --- */
+/* --- GSAP ANIMATION STATES --- */
+.card-animate {
+  opacity: 0;
+  transform: translateY(80px);
+  will-change: transform, opacity;
+}
+
+/* --- TOAST NOTIFICATION --- */
 .toast {
   position: fixed;
   bottom: 40px;
@@ -421,7 +371,6 @@ footer .footer-links {
 }
 
 footer .footer-links a {
-  text-decoration: none;
   font-size: 0.7rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -432,6 +381,34 @@ footer .footer-links a {
 
 footer .footer-links a:hover {
   color: var(--fg);
+}
+
+/* --- MARQUEE BAND --- */
+.marquee-band {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-inner {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-inner span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 40px;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
 }
 
 /* --- EMPTY STATE --- */
@@ -460,6 +437,9 @@ footer .footer-links a:hover {
 @media (max-width: 1024px) {
   .card-content {
     padding: 2.5rem;
+  }
+  .card-content h3 {
+    font-size: 1.8rem;
   }
 }
 
@@ -499,6 +479,10 @@ footer .footer-links a:hover {
     font-size: 1.5rem;
   }
 
+  .card-content .price {
+    font-size: 1rem;
+  }
+
   footer {
     flex-direction: column;
     padding: 40px 5%;
@@ -524,5 +508,10 @@ footer .footer-links a:hover {
 
   .hero h1 {
     font-size: 24vw;
+  }
+
+  .hero p {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
   }
 }
